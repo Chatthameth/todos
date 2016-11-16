@@ -1,18 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>
-  </title>
+  <meta charset="utf-8">
+  <title>TODOS</title>
+  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body bgcolor="#FFCCFF">
+
+<body background="bg-polygon-grey.jpg">
+  <!-- ใส่ภาพพื้นหลัง -->
   <center> <img src="Todo2.png">
+    <!-- ในส่วนของโลโก้นั้น -->
     <br><br>
-    <center><input size=50style= style="text-align:center" id="title "name="title" placeholder="What needs to be done?">
+
+<div class = "container" >
+  <div ng-controller="ListContactController">
+
+    <center><input size=50style= style="text-align:center"
+    id="title "name="title" placeholder="What needs to be done?">
+    <!-- ช่องใส่ข้อความ -->
     <button style="background-color:#00FF66" >Add</button>
-    <br><br>
-  <table>
+    <!-- ปุ่ม Add -->
+    <br><br><br>
 
-
+  <table class="table table-hover" border="2" >
+    <!-- สร้างตาราง -->
+    <tread>
+      <tr >
+        <th  style="width:10%" bgcolor="pink" >Check Box</th>
+        <th  style="width:30%" bgcolor="pink" >Title</th>
+        <th  style="width:20%" bgcolor="pink" >Done</th>
+      </tr>
+      <!-- ชื่อหัวข้อตาราง Check Box : Title : Done -->
+    </tread>
+<!-- ตารางในส่วนของการแสดงค่า Check Box : Title : Done -->
+    <tr>
+      <td><input type="checkbox" ng-model="" ></td>
+        <!-- Check Box มีปุ่มกดติ้กถูก -->
+      <td > {{ contact.title }} </td>
+      <!-- แสดงข้อความที่ป้อนเข้ามา -->
+      <td > {{ }} </td>
+      <!-- แสดงสถานะ ถ้าติ้กถูกจาก Check Box จะแสดงสถานะ Cpmplet -->
+    </tr>
   </table>
-
 </body>
+</html>
