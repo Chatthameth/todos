@@ -40,11 +40,11 @@
           </thead>
         <tbody>
           <tr ng-repeat="contact in contacts">
-           <td><input type="checkbox"></td>
+           <td><input type="checkbox" ng-model="contact.done" ng-true-value="'Complete'" ng-false-value="" style=""></td>
            <!-- ช่องติ้กถูกจะกดจะมี event กับ Done -->
            <td>{{ contact.title }}</td>
            <!-- แสดงข้อความที่รับเข้ามาจาก What needs to be do? และ Title ตัวอย่าง -->
-           <td>{{ contact.phone }}</td>
+           <td><font color=red><b>{{ contact.done }}</b></font></td>
            <!-- แสดงสถานะ Complet เมื่อติ้กถูกที่ช่อง Check Box -->
          </tr>
        </tbody>
