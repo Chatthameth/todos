@@ -3,7 +3,7 @@ angular.module('ContactApp', [])
   var self = this
 
   self.contacts = [
-    { title: 'มหาวิทยาลัยบูรพาแจ่มจ้าเจิดขวัญ'},
+    { title: 'เดินไปจ่ายตลาดที่หนองมน'},
     { title: 'คือว่าเรากินส้มตำปูปลาร้าไม่เป็นอะค่ะ'},
     { title: 'ไม่ได้ตอแหลแค่ดัดจริตเฉยๆ'}
   ]
@@ -16,7 +16,6 @@ angular.module('ContactApp', [])
     self.contacts.push(contact)
   }
 })
-
 
 .controller('ListContactController',function($scope , contactService ){
 $scope.newContact = {
