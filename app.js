@@ -3,9 +3,9 @@ angular.module('ContactApp', [])
   var self = this
 
   self.contacts = [
-    { title: 'เดินไปจ่ายตลาดที่หนองมน'},
-    { title: 'คือว่าเรากินส้มตำปูปลาร้าไม่เป็นอะค่ะ'},
-    { title: 'ไม่ได้ตอแหลแค่ดัดจริตเฉยๆ'}
+    { title: 'ข้าวกระเพราผัดกะหรี่เป็ดใส่ไข่ดาวไม่สุก พิเศษ โต๊ะ 9'},
+    { title: 'ฮันนี่โทส, วัฟเฟิลช็อคโกแลตกล้วย, โกโก้ปั่น, ช็อคลาวา, น้ำเปล่า'},
+    { title: 'ส้มตำปูปลาร้า, หมูน้ำตก, ลาบหมู, ต้มกระดูกอ่อน, ข้าวเหนียว, ขนมจีน '}
   ]
 
   self.list = function () {
@@ -26,20 +26,19 @@ $scope.contacts = contactService.list()
 
 .controller('AddContactController' , function($scope , contactService){
   $scope.save = function(){
+    if($scope.title != '' && $scope.title != null){
     var contact = {
-      title: $scope.title }
-
+      title: $scope.title
+    }
     contact.title = $scope.title;
-
     contactService.add(contact);
     resetForm();
-
-
+    }
+    else{
+      resetForm()
+    }
   }
-
     function resetForm(){
       $scope.title = '';
-
     }
-
 });
