@@ -11,6 +11,7 @@
     <center> <img src="Todo2.png">
     <!-- ใส่โลโก้เว็บไว้ตรงกลาง -->
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   -->
+<div class = "container" >
     <div ng-controller= "AddContactController">
       <form name="contactForm">
         <div class="form-group">
@@ -23,6 +24,7 @@
             <!-- ปุ่มกดเพื่อแอดรับค่าที่กรอกเข้ามาในช่อง What needs to be do? -->
       </form>
     </div><br>
+</div>
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <div class = "container" >
       <div ng-controller="ListContactController">
@@ -40,7 +42,7 @@
           </thead>
         <tbody>
           <tr ng-repeat="contact in contacts">
-           <td><input type="checkbox" ng-model="contact.done" ng-true-value="'Complete'" ng-false-value="" style=""></td>
+           <td><input type="checkbox" ng-model="contact.done" ng-true-value="'Complete'" ng-false-value=""></td>
            <!-- ช่องติ้กถูกจะกดจะมี event กับ Done -->
            <td>{{ contact.title }}</td>
            <!-- แสดงข้อความที่รับเข้ามาจาก What needs to be do? และ Title ตัวอย่าง -->
@@ -50,6 +52,7 @@
        </tbody>
       </table>
       <!-- จุดสิ้นสุดตาราง -->
+      <img src="pika.png">
     </center>
      </div>
     </div>
