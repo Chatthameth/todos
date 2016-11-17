@@ -1,46 +1,62 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>TODOS</title>
-  <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
-<body background="bg-polygon-grey.jpg">
-  <!-- ใส่ภาพพื้นหลัง -->
-  <center> <img src="Todo2.png">
-    <!-- ในส่วนของโลโก้นั้น -->
-    <br><br>
-
-<div class = "container" >
-  <div ng-controller="ListContactController">
-
-    <center><input size=50style= style="text-align:center"
-    id="title "name="title" placeholder="What needs to be done?">
-    <!-- ช่องใส่ข้อความ -->
-    <button style="background-color:#00FF66" >Add</button>
-    <!-- ปุ่ม Add -->
-    <br><br><br>
-
-  <table class="table table-hover" border="2" >
-    <!-- สร้างตาราง -->
-    <tread>
-      <tr >
-        <th  style="width:10%" bgcolor="pink" >Check Box</th>
-        <th  style="width:30%" bgcolor="pink" >Title</th>
-        <th  style="width:20%" bgcolor="pink" >Done</th>
-      </tr>
-      <!-- ชื่อหัวข้อตาราง Check Box : Title : Done -->
-    </tread>
-<!-- ตารางในส่วนของการแสดงค่า Check Box : Title : Done -->
-    <tr>
-      <td><input type="checkbox" ng-model="" ></td>
-        <!-- Check Box มีปุ่มกดติ้กถูก -->
-      <td > {{ contact.title }} </td>
-      <!-- แสดงข้อความที่ป้อนเข้ามา -->
-      <td > {{ }} </td>
-      <!-- แสดงสถานะ ถ้าติ้กถูกจาก Check Box จะแสดงสถานะ Cpmplet -->
-    </tr>
-  </table>
-</body>
+<html ng-app='ContactApp'>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+      <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <body background="bg-polygon-grey.jpg">
+   <!-- ใส่ bg ให้ในส่วนของ body   -->
+    <center> <img src="Todo2.png">
+    <!-- ใส่โลโก้เว็บไว้ตรงกลาง -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~   -->
+    <div ng-controller= "AddContactController">
+      <form name="contactForm">
+        <div class="form-group">
+            <input style="text-align:center" type="text" class="form-control"
+            id="title"  placeholder="What needs to be do?" ng-model="title"
+            maxlength=100>
+            <!-- ช่องรับข้อความ, มีการแสดงข้อความไว้ว่า What needs to be do?  -->
+        </div>
+            <button class="btn btn-default" style="background-color:#00FF66" ng-click="save()">SUBMIT</button>
+            <!-- ปุ่มกดเพื่อแอดรับค่าที่กรอกเข้ามาในช่อง What needs to be do? -->
+      </form>
+    </div><br>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <div class = "container" >
+      <div ng-controller="ListContactController">
+        <table class="table table-hover">
+        <!-- จุดเริ่มต้นตาราง -->
+          <thead>
+            <tr>
+              <th bgcolor="pink" style="width:10%">Check Box</th>
+              <!-- หัวข้อ Check Box -->
+              <th bgcolor="pink" style="width:30%">Title</th>
+              <!-- หัวข้อ Title -->
+              <th bgcolor="pink" style="width:20%">Done</th>
+              <!-- หัวข้อ Done -->
+            </tr>
+          </thead>
+        <tbody>
+          <tr ng-repeat="contact in contacts">
+           <td><input type="checkbox"></td>
+           <!-- ช่องติ้กถูกจะกดจะมี event กับ Done -->
+           <td>{{ contact.title }}</td>
+           <!-- แสดงข้อความที่รับเข้ามาจาก What needs to be do? และ Title ตัวอย่าง -->
+           <td>{{ contact.phone }}</td>
+           <!-- แสดงสถานะ Complet เมื่อติ้กถูกที่ช่อง Check Box -->
+         </tr>
+       </tbody>
+      </table>
+      <!-- จุดสิ้นสุดตาราง -->
+    </center>
+     </div>
+    </div>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+     <script src="node_modules/jquery/dist/jquery.min.js"></script>
+     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+     <script src="node_modules/angular/angular.js" charset="utf-8"></script>
+     <script src="app.js"></script>
+  </body>
 </html>
